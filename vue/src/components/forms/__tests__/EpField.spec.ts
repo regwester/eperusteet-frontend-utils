@@ -7,10 +7,10 @@ describe('EpInput component', () => {
 
   test('Renders field with content', async () => {
     const wrapper = mount(EpField, {
-        propsData: {
-            value: 'arvo',
-        },
-        localVue
+      propsData: {
+        value: 'arvo',
+      },
+      localVue
     });
 
     await localVue.nextTick();

@@ -18,12 +18,12 @@ describe('EpInput component', () => {
 
   test('Renders input with content', async () => {
     const wrapper = mount(EpInput, {
-        propsData: {
-            help: 'apua',
-            value: 'arvo',
-        },
-        localVue,
-        i18n,
+      propsData: {
+        help: 'apua',
+        value: 'arvo',
+      },
+      localVue,
+      i18n,
     });
 
     await localVue.nextTick();
@@ -49,12 +49,12 @@ describe('EpInput component', () => {
       },
       template: '<ep-input :is-editing="isEditing" type="string" v-model="value" />'
     }), {
-        propsData: {
-            value: '123',
+      propsData: {
+        value: '123',
 
-        },
-        localVue,
-        i18n,
+      },
+      localVue,
+      i18n,
     });
 
     await localVue.nextTick();
