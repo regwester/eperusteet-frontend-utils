@@ -63,18 +63,10 @@ describe('EpInput component', () => {
     wrapper.setProps({isEditing: true});
     await localVue.nextTick();
 
-    
-    console.log(wrapper.html());
-
     wrapper.find('input[type="text"]').setValue('321');
-
-    console.log(wrapper.html());
 
     wrapper.setProps({isEditing: false});
     await localVue.nextTick();
-
-    console.log(wrapper.html());
-
 
     expect(wrapper.text()).toContain('321');
     expect(wrapper.text()).not.toContain('123');
