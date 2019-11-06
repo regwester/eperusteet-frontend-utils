@@ -1,7 +1,7 @@
 <template>
   <div v-if="show">
     <div class="tutorial-bg"></div>
-    <b-popover show v-if="current" :target="current" :key="current" placement="bottom" custom-class="tutorial-popover">
+    <b-popover id="tutorial-popover" v-if="current" :target="current" :key="current" placement="bottom" custom-class="tutorial-popover">
       <div class="tutorial-popover-content">{{ $t('tutorial-' + current)}}</div>
       <div class="tutorial-popover-buttons">
         <ep-button class="mr-5"
@@ -44,7 +44,7 @@ import _ from 'lodash';
 })
 export default class EpTutorial extends Vue {
 
-  @Prop()
+  @Prop({required : true})
   private tutoriaalistore!: TutoriaaliStore;
 
   suljeTutoriaali() {
@@ -52,11 +52,11 @@ export default class EpTutorial extends Vue {
   }
 
   get show() {
-    return this.tutoriaalistore.isActive;
+    return this.tutoriaalistore.active;
   }
 
   get current() {
-    return this.tutoriaalistore.current;
+    return this.tutoriaalistore.current();
   }
 
   get hasSeuraava() {
