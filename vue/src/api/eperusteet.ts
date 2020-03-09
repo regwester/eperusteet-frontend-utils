@@ -55,6 +55,9 @@ export const TutkinnonRakenne = initApi(EperusteetApi.TutkinnonRakenneApi);
 export const Tutkinnonosat = initApi(EperusteetApi.TutkinnonosatApi);
 export const TutkinnonosatPrivate = initApi(EperusteetApi.TutkinnonosatPrivateApi);
 export const Ulkopuoliset = initApi(EperusteetApi.UlkopuolisetApi);
+export const Lokalisointi = initApi(EperusteetApi.LokalisointiApi);
+export const Lops2019 = initApi(EperusteetApi.Lops2019Api);
+export const Termit = initApi(EperusteetApi.TermitApi);
 
 export type ArviointiAsteikkoDto = EperusteetApi.ArviointiAsteikkoDto;
 export type GeneerinenArviointiasteikkoDto = EperusteetApi.GeneerinenArviointiasteikkoDto;
@@ -83,6 +86,7 @@ export type TiedoteDto = EperusteetApi.TiedoteDto;
 export type ValidationDto = EperusteetApi.ValidationDto;
 export type TutkinnonOsaViiteDto = EperusteetApi.TutkinnonOsaViiteDto;
 export type MuokkaustietoKayttajallaDto = EperusteetApi.MuokkaustietoKayttajallaDto;
+export type Lops2019OppiaineDto = EperusteetApi.Lops2019OppiaineDto;
 
 export const LiitetiedostotParam = LiitetiedostotApiAxiosParamCreator(configuration);
 export const DokumentitParam = DokumentitApiAxiosParamCreator(configuration);
@@ -146,4 +150,8 @@ export async function getAllPerusteet(query: PerusteQuery) {
     query.osaamisalat,
     query.koulutusvienti,
   );
+}
+
+export interface ViiteLaaja extends EperusteetApi.PerusteenOsaViiteDto {
+  lapset?: Array<object>;
 }

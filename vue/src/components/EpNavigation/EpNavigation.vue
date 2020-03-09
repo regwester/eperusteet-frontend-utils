@@ -133,7 +133,7 @@ export default class EpNavigation extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/_variables.scss';
+@import '@shared/styles/_variables.scss';
 
 .topbar {
   .navbar {

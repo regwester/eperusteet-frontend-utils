@@ -48,19 +48,58 @@ img.content-image {
     margin-bottom: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  @media (max-width: 767.98px) {
+    .container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+
+  h1, h2, h3 {
     font-family: Poppins, sans-serif;
   }
 
-  h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.3rem; }
-  h3 { font-size: 1.25rem; }
-  h4 { font-size: 1.25rem; }
-  h5 { font-size: 1.125rem; }
-  h6 { font-size: 1.0rem; }
+  h4, h5, h6 {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Open Sans";
+  }
+  h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Open Sans";
+  }
+  h6 {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
 
   div.mx-datepicker-popup {
     z-index: 5000;
+  }
+
+  mark {
+    padding: 0;
   }
 }
 

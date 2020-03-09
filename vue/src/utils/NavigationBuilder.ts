@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { NavigationNodeDto, LokalisoituTekstiDto } from '../api/tyypit';
+import { NavigationNodeDto, LokalisoituTekstiDto } from '../tyypit';
 import { Kielet } from '../stores/kieli';
 import { Location } from 'vue-router';
 

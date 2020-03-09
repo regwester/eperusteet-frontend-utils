@@ -23,7 +23,8 @@
 <script lang="ts">
 import _ from 'lodash';
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
-import { TermiDto, LiiteDtoWrapper } from '../../api/tyypit';
+import { LiiteDtoWrapper } from '../../tyypit';
+import { TermiDto } from '../../api/ylops';
 import { Kielet } from '../../stores/kieli';
 
 @Component
@@ -60,18 +61,22 @@ export default class EpContentViewer extends Vue {
           wrapper.appendChild(img);
         }
 
-        const kuva = _.find(this.kuvat, { id: img.getAttribute('data-uid') }) as LiiteDtoWrapper;
-        if (kuva) {
-          img.setAttribute('src', kuva.src);
-          /* TODO: Nimeksi asetetaan perusteissa tiedostonnimi eikä kuvatekstiä. Piilotetaan toistaiseksi.
-          if (kuva.kuva.nimi) {
-            img.setAttribute('alt', kuva.kuva.nimi);
+        const datauid = img.getAttribute('data-uid');
+        if (datauid) {
+          const kuva = _.find(this.kuvat, { id: datauid }) as LiiteDtoWrapper;
 
-            const figcaption = document.createElement('figcaption');
-            figcaption.textContent = kuva.kuva.nimi;
-            wrapper.append(figcaption);
+          if (kuva) {
+            img.setAttribute('src', kuva.src);
+            /* TODO: Nimeksi asetetaan perusteissa tiedostonnimi eikä kuvatekstiä. Piilotetaan toistaiseksi.
+            if (kuva.kuva.nimi) {
+              img.setAttribute('alt', kuva.kuva.nimi);
+
+              const figcaption = document.createElement('figcaption');
+              figcaption.textContent = kuva.kuva.nimi;
+              wrapper.append(figcaption);
+            }
+            */
           }
-          */
         }
       });
 
@@ -81,15 +86,18 @@ export default class EpContentViewer extends Vue {
 
   get termitWrapped() {
     return _.map(this.termiElements, el => {
-      const termi: any = _.find(this.termit, { 'avain': el.getAttribute('data-viite') });
-      if (termi) {
-        el.setAttribute('tabindex', '0');
-        el.setAttribute('role', 'button');
-        el.setAttribute('title', Kielet.kaanna(termi.termi));
-        return {
-          el,
-          termi,
-        };
+      const dataviite = el.getAttribute('data-viite');
+      if (dataviite) {
+        const termi: any = _.find(this.termit, { 'avain': dataviite } );
+        if (termi) {
+          el.setAttribute('tabindex', '0');
+          el.setAttribute('role', 'button');
+          el.setAttribute('title', Kielet.kaanna(termi.termi));
+          return {
+            el,
+            termi,
+          };
+        }
       }
     });
   }

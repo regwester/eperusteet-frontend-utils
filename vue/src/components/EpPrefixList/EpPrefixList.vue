@@ -133,7 +133,7 @@ export default class EpPrefixList extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/_variables.scss';
+@import 'shared';
 
 .alue-editing {
   background: $color-light-background;
