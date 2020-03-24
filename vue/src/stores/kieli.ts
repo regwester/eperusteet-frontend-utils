@@ -17,7 +17,6 @@ Vue.use(VueCompositionApi);
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $kaanna: Computed<string>;
     $locale: Computed<string>;
     $slang: Computed<string>;
     $t: typeof VueI18n.prototype.t;
