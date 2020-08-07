@@ -1,7 +1,16 @@
 <template>
-<draggable v-bind="options" tag="div" class="tree-container" :value="value" @input="emitter" :key="value.length">
+<draggable v-bind="options"
+           handle=".handle"
+           tag="div"
+           class="tree-container"
+           :value="value"
+           @input="emitter"
+           :key="value.length">
   <div v-for="(node, idx) in value" :key="idx">
-    <div class="box" :class="{ 'new-box': node.$uusi, 'box-draggable': isEditable }" >
+    <div class="box" :class="{ 'new-box': node.$uusi }" >
+      <span class="handle" :class="{ 'box-draggable': isEditable }">
+        <fas icon="grip-vertical" />
+      </span>
       <span class="chapter">
         {{ prefix }}{{ idx + 1 }}
       </span>
@@ -125,6 +134,11 @@ export default class EpJarjesta extends Vue {
   margin-left: 26px;
 }
 
+.handle {
+  color: #668DEA;
+  margin-right: 8px;
+}
+
 .box {
   min-height: 40px;
   max-width: 512px;
@@ -132,8 +146,8 @@ export default class EpJarjesta extends Vue {
   border: 1px solid #CCD9F8;
   border-radius: 4px;
   background-color: rgba(230,246,255,0.6);
-  padding: 7px 20px 7px 20px;
-  margin-bottom: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
 
   .actions {
     float: right;
