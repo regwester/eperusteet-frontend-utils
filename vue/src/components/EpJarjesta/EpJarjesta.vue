@@ -1,14 +1,13 @@
 <template>
 <draggable v-bind="options"
-           handle=".handle"
            tag="div"
            class="tree-container"
            :value="value"
            @input="emitter"
            :key="value.length">
   <div v-for="(node, idx) in value" :key="idx">
-    <div class="box" :class="{ 'new-box': node.$uusi }" >
-      <span class="handle" :class="{ 'box-draggable': isEditable }">
+    <div class="box" :class="{ 'new-box': node.$uusi, 'box-draggable': isEditable }" >
+      <span class="handle" v-if="isEditable">
         <fas icon="grip-vertical" />
       </span>
       <span class="chapter">
@@ -137,6 +136,7 @@ export default class EpJarjesta extends Vue {
 .handle {
   color: #668DEA;
   margin-right: 8px;
+  cursor: grab;
 }
 
 .box {
