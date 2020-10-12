@@ -8,6 +8,7 @@ import bannerEsiopetus from '../../public/img/banners/banner_esiopetus.svg';
 import bannerPerusopetus from '../../public/img/banners/banner_perusopetus.svg';
 import bannerTaiteenperusopetus from '../../public/img/banners/banner_taiteenperusopetus.svg';
 import bannerVarhaiskasvatus from '../../public/img/banners/banner_varhaiskasvatus.svg';
+import bannerVapaasivistystyo from '../../public/img/banners/header_vapaasivistystyo.svg';
 import { themes } from './perusteet';
 
 const koulutustyyppiRyhmaTiles = {
@@ -24,6 +25,7 @@ const koulutustyyppiRyhmaBanners = {
   'perusopetus': bannerPerusopetus,
   'taiteenperusopetus': bannerTaiteenperusopetus,
   'varhaiskasvatus': bannerVarhaiskasvatus,
+  'vapaasivistystyo': bannerVapaasivistystyo,
 };
 
 export function koulutustyyppiBanner(koulutustyyppi) {
