@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'innertile': true, 'route-button': effectEnabled}">
-    <div class="tile-header">
+    <div class="tile-header" :style="tileHeaderStyle">
       <h3 class="oph-h3 tileheader">
         <slot name="header"></slot>
       </h3>
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator';
+import { Vue, Prop, Component, Inject } from 'vue-property-decorator';
 import EpIcon from '@shared/components/EpIcon/EpIcon.vue';
 
 @Component({
@@ -36,6 +36,12 @@ export default class BaseInnerTile extends Vue {
 
   @Prop({ required: false })
   private count!: number;
+
+  @Prop({ required: false })
+  private headerStyle!: string;
+
+  @Inject('tileHeaderStyle')
+  private readonly tileHeaderStyle!: object;
 
   get effectEnabled() {
     if (this.effects.hover || this.effects.focus) {
